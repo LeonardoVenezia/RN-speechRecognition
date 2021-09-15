@@ -63,7 +63,8 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Press the button and start speaking.</Text>
+      <Text style={styles.title}>Speech to text proyect</Text>
+      <Text style={styles.subtitle}>Press the button and start speaking.</Text>
       <TouchableOpacity
         style={[
           styles.recButton,
@@ -79,16 +80,12 @@ const App = () => {
       >
         <View style={styles.recPoint} />
       </TouchableOpacity>
-      <Text>Results:</Text>
       <View style={styles.resultContainer}>
         {results.map((result, index) => {
           return <Text key={`result-${index}`}>{result}</Text>;
         })}
       </View>
-      <Button
-        title="Click here to copy to Clipboard"
-        onPress={copyToClipboard}
-      />
+      <Button title="Copy to Clipboard" onPress={copyToClipboard} />
     </View>
   );
 };
@@ -100,12 +97,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#F5FCFF",
   },
+  title: {
+    fontSize: 32,
+    marginBottom: 24,
+  },
+  subtitle: {
+    marginBottom: 16,
+  },
   resultContainer: {
     width: Dimensions.get("window").width - 30,
     height: 200,
-    borderColor: "#4EC5C1",
+    borderColor: "#000000",
+    // borderColor: "#4EC5C1",
     borderWidth: 1,
     padding: 8,
+    marginBottom: 16,
   },
   recButton: {
     width: 70,
@@ -114,6 +120,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderWidth: 1,
     padding: 9,
+    marginBottom: 16,
   },
   recPoint: {
     width: 50,
